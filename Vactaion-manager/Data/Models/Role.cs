@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Vacation_manager.Models
+namespace Vacation_manager.Data.Models
 {
     public class Role
     {

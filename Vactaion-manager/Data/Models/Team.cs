@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Vacation_manager.Models
+namespace Vacation_manager.Data.Models
 {
     public class Team
     {

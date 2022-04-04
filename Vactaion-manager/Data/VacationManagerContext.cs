@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Vacation_manager.Models;
+using Vacation_manager.Data.Models;
 
 namespace Vacation_manager.Data
 {
