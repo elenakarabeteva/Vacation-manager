@@ -12,5 +12,12 @@ namespace Vactaion_manager.Services
         //all developers, who is the leader and
         //full info about the team
         //remove, add user
+        Team GetByName(string name);
+
+        IEnumerable<Team> GetTeamByLeader(User user);
+
+        //IEnumerable<User> GetAllByUsers(string lastName);
+
+     
     }
 }

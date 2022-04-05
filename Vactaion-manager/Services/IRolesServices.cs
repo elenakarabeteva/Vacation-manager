@@ -8,6 +8,8 @@ namespace Vactaion_manager.Services
 {
     public interface IRolesServices
     {
+        Role GetByType(string type);
+
         IEnumerable<User> GetAllUsersByRole(string role);
 
         //roles and their users count

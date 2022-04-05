@@ -7,5 +7,11 @@ namespace Vactaion_manager.Services
 {
     public class ProjectsServices
     {
+        private readonly VacationManagerContext managerContext;
+
+        public ProjectsServices(VacationManagerContext managerContext)
+        {
+            this.managerContext = managerContext;
+        }
     }
 }

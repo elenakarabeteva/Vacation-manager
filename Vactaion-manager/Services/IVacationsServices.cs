@@ -7,6 +7,11 @@ namespace Vactaion_manager.Services
 {
     public interface IVacationsServices
     {
+       // Vacation GetByType(Type type);
+
+        IEnumerable<Vacation> GetAllByType(Type type);
+
+        IEnumerable<Vacation> GetAllByData(DateTime creationDate);
         //see all
         //delete
         //download
