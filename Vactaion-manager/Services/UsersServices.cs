@@ -17,6 +17,23 @@ namespace Vactaion_manager.Services
             this.managerContext = managerContext;
         }
 
+        public IEnumerable<User> AddTeamToUser(int id, Team team)
+        {
+            var temp = this.managerContext
+                .Users.Where(u => u.Id == id)
+                .Select(u => new User
+                {
+                    Id = u.Id,
+                    UserName = u.UserName,
+                    FirstName = u.FirstName,
+                    Surname = u.Surname,
+                    Role = u.Role,
+                    Team = team
+                });
+
+            return temp;
+        }
+
         //all users / pages
         //queries for vacations
 
@@ -43,11 +60,11 @@ namespace Vactaion_manager.Services
         public IEnumerable<User> GetAllByLastName(string lastName)
         {
             var list = this.managerContext
-                .Users 
+                .Users
                 .OrderBy(u => u.Id)
                 .Where(u => u.Surname == lastName)
-                .Select(u => new User 
-                { 
+                .Select(u => new User
+                {
                     Id = u.Id,
                     UserName = u.UserName,
                     FirstName = u.FirstName,
@@ -81,7 +98,7 @@ namespace Vactaion_manager.Services
 
         //public IEnumerable<Vacation> GetAllVacationsByUser(int id)
         //{
-            
+
         //}
 
         public User GetByUsername(string username)

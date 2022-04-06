@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Vacation_manager.Data;
+using Vacation_manager.Data.Models;
 
 namespace Vactaion_manager.Services
 {
-    public class VacationsServices
+    public class VacationsServices : IVacationsServices
     {
         private readonly VacationManagerContext managerContext;
 
-        public VacationServices(VacationManagerContext managerContext)
+        public VacationsServices(VacationManagerContext managerContext)
         {
             this.managerContext = managerContext;
         }
@@ -27,7 +29,7 @@ namespace Vactaion_manager.Services
                     StartDate = v.StartDate,
                     EndDate = v.EndDate,
                     CreationDate = v.CreationDate,
-                    HalfDateVacation = v.HalfDateVacation,
+                    HalfADayVacation = v.HalfADayVacation,
                     Accepted = v.Accepted
                 })
                 .ToList();
@@ -41,14 +43,14 @@ namespace Vactaion_manager.Services
                 .Vacations
                 .OrderBy(v => v.Id)
                 .Where(v => v.CreationDate == creationDate)
-                .Select(u => new Vacation
+                .Select(v => new Vacation
                 {
                     Id = v.Id,
                     Description = v.Description,
                     StartDate = v.StartDate,
                     EndDate = v.EndDate,
                     CreationDate = v.CreationDate,
-                    HalfDateVacation = v.HalfDateVacation,
+                    HalfADayVacation = v.HalfADayVacation,
                     Accepted = v.Accepted
                 })
                 .ToList();

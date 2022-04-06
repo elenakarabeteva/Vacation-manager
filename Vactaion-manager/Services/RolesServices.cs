@@ -16,11 +16,31 @@ namespace Vactaion_manager.Services
             this.managerContext = managerContext;
         }
 
-        //public IDictionary<string, int> GetAllRolesAndCount()
-        //{
-        //    var dictionary = this.managerContext
-        //        .
-        //}
+        public IDictionary<string, int> GetAllRolesAndCount()
+        {
+            IEnumerable<User> users = this.managerContext.Users;
+            IEnumerable<Role> roles = this.managerContext.Roles;
+
+            var dictionary = new Dictionary<string, int>();
+
+            foreach (var item in roles)
+            {
+                if (!dictionary.ContainsKey(item.Type))
+                {
+                    dictionary.Add(item.Type, 0);
+                }
+            }
+
+            foreach (var item in users)
+            {
+                if (dictionary.ContainsKey(item.Role.Type))
+                {
+                    dictionary[item.Role.Type]++;
+                }
+            }
+
+            return dictionary;
+        }
 
         public IEnumerable<User> GetAllUsersByRole(string role)
         {
