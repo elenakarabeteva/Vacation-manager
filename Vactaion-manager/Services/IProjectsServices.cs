@@ -12,7 +12,7 @@ namespace Vactaion_manager.Services
 
         IEnumerable<Project> GetAllProjectsByDescription(string projectDescription);
 
-        IEnumerable<Team> GetAllTeamsWorkingOnProject(Project project);
+        IEnumerable<Team> GetAllTeamsWorkingOnProject(ProjectTeam projectTeam);
 
         //filter by name and description
         //detail - list with teams working on it

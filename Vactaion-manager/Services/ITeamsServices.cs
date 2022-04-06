@@ -9,7 +9,7 @@ namespace Vactaion_manager.Services
     public interface ITeamsServices
     {
         //filter by project name or teams name
-        IEnumerable<Team> GetTeamByProjectName(string projectName);
+        IEnumerable<Team> GetTeamByProjectName(string projectTeamName);
         Team GetTeamByTeamName(string teamName);
 
         //all developers, who is the leader and

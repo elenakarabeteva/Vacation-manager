@@ -31,7 +31,7 @@ namespace Vacation_manager.Data.Models
         [ForeignKey(nameof(User))]
         public int UserId { get; set; }
 
-        public User User { get; set; }
+        public User user { get; set; }
 
         [Required]
         [ForeignKey(nameof(VacationType))]
@@ -42,5 +42,7 @@ namespace Vacation_manager.Data.Models
         [Required]
         [ForeignKey(nameof(User))]
         public int AcceptedByUserId { get; set; }
+
+        public User AcceptedByUser { get; set; }
     }
 }

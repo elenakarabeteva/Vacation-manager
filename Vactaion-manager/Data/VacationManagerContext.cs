@@ -13,6 +13,10 @@ namespace Vacation_manager.Data
         {
         }
 
+        public VacationManagerContext()
+        {
+        }
+
         public DbSet<Project> Projects { get; set; }
         public DbSet<ProjectTeam> ProjectsTeams { get; set; }
         public DbSet<Role> Roles { get; set; }
@@ -35,6 +39,18 @@ namespace Vacation_manager.Data
             modelBuilder.Entity<ProjectTeam>(p =>
             {
                 p.HasKey(pt => new { pt.TeamId, pt.ProjectId });
+            });
+
+            modelBuilder.Entity<User>(u =>
+            {
+                u.HasOne(u => u.Team)
+                .WithMany(t => t.Users)
+                .HasForeignKey(u => u.TeamId);
+            });
+
+            modelBuilder.Entity<User>(u =>
+            {
+                u.HasKey(u => u.Id);
             });
         }
     }
