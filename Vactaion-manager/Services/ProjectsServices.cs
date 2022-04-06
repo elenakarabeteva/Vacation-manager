@@ -36,11 +36,11 @@ namespace Vactaion_manager.Services
             return list;
         }
 
-        public IEnumerable<Team> GetAllTeamsWorkingOnProject(Project project)
+        public IEnumerable<Team> GetAllTeamsWorkingOnProject(ProjectTeam projectTeam)
         {
             var list = this.managerContext
                 .Teams
-                .Where(t => t.Projects.Contains(project))
+                .Where(t => t.ProjectTeams.Contains(projectTeam))
                 .ToList();
 
             return list;

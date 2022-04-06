@@ -36,11 +36,11 @@ namespace Vactaion_manager.Services
             return leader;
         }
 
-        public IEnumerable<Team> GetTeamByProjectName(string projectName)
+        public IEnumerable<Team> GetTeamByProjectName(string projectTeamName)
         {
             var list = this.managerContext
                 .Teams
-                .Where(t => t.Projects.Any(x => x.Name == projectName))
+                .Where(t => t.ProjectTeams.Any(x => x.Project.Name == projectTeamName))
                 .ToList();
 
             return list;

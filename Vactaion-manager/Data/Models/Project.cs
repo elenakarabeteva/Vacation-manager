@@ -6,6 +6,11 @@ namespace Vacation_manager.Data.Models
 {
     public class Project
     {
+        public Project()
+        {
+            this.ProjectTeams = new HashSet<ProjectTeam>();
+        }
+
         [Key]
         public int Id { get; set; }
 
@@ -15,6 +20,6 @@ namespace Vacation_manager.Data.Models
         [Required]
         public string Description { get; set; }
 
-        public ICollection<Team> Teams { get; set; }
+        public virtual ICollection<ProjectTeam> ProjectTeams { get; set; }
     }
 }
