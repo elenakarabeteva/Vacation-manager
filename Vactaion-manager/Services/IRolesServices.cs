@@ -12,5 +12,11 @@ namespace Vactaion_manager.Services
 
         //roles and their users count
         IDictionary<string, int> GetAllRolesAndCount();
+
+        Task<int> Create(string type);
+
+        Task Delete(int roleId);
+
+        Task Update(string type);
     }
 }

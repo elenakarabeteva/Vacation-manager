@@ -19,5 +19,11 @@ namespace Vactaion_manager.Services
         IEnumerable<User> AddTeamToUser(int id, Team team);
 
         //IEnumerable<Vacation> GetAllVacationsByUser(int id);
+
+        Task<int> Create(string username, string firstName, string surname, string password);
+
+        Task Delete(int userId);
+
+        Task Update(string username, string firstName, string surname, string password);
     }
 }

@@ -17,5 +17,11 @@ namespace Vactaion_manager.Services
         //filter by name and description
         //detail - list with teams working on it
         //option - add / remove team - controllers
+
+        Task<int> Create(string projectName, string projectDescription);
+
+        Task Delete(int projectId);
+
+        Task Update(string projectName, string projectDescription);
     }
 }

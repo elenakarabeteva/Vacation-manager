@@ -23,6 +23,10 @@ namespace Vactaion_manager.Services
 
         //IEnumerable<User> GetAllByUsers(string lastName);
 
+        Task<int> Create(string teamName);
 
+        Task Delete(int teamId);
+
+        Task Update(string teamName);
     }
 }
