@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Vacation_manager.Data;
 using Vacation_manager.Data.Models;
+using Vactaion_manager.Models.Roles;
 
 namespace Vactaion_manager.Services
 {
@@ -14,6 +15,31 @@ namespace Vactaion_manager.Services
         public RolesServices(VacationManagerContext managerContext)
         {
             this.managerContext = managerContext;
+        }
+
+        public async Task<int> Create(CreateRoleInputModel inputModel)
+        {
+            Role role = new Role()
+            {
+               Type = inputModel.Type
+            };
+
+            await this.managerContext.AddAsync(role);
+            await this.managerContext.SaveChangesAsync();
+
+            return role.Id;
+        }
+
+        public async Task Delete(int roleId)
+        {
+            Role role = this.managerContext.Roles.FirstOrDefault(r => r.Id == roleId);
+            if (role == null)
+            {
+                throw new ArgumentNullException("The user does not exist!");
+            }
+
+            this.managerContext.Roles.Remove(role);
+            await this.managerContext.SaveChangesAsync();
         }
 
         public IDictionary<string, int> GetAllRolesAndCount()
@@ -58,6 +84,19 @@ namespace Vactaion_manager.Services
                 .ToList();
 
             return list;
+        }
+
+        public async Task Update(UpdateRoleInputModel inputModel)
+        {
+            Role role = this.managerContext.Roles.FirstOrDefault(r => r.Id == inputModel.Id);
+            if (role == null)
+            {
+                throw new ArgumentNullException("Counld not be updated!");
+            }
+
+            role.Type = inputModel.Type;
+
+            await this.managerContext.SaveChangesAsync();
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Vacation_manager.Data.Models;
+using Vactaion_manager.Models.Users;
 
 namespace Vactaion_manager.Services
 {
@@ -18,12 +19,10 @@ namespace Vactaion_manager.Services
 
         IEnumerable<User> AddTeamToUser(int id, Team team);
 
-        //IEnumerable<Vacation> GetAllVacationsByUser(int id);
-
-        Task<int> Create(string username, string firstName, string surname, string password);
+        Task<int> Create(int roleId, int teamId, CreateUserInputModel inputModel);
 
         Task Delete(int userId);
 
-        Task Update(string username, string firstName, string surname, string password);
+        Task Update(UpdateUserInputModel inputModel);
     }
 }

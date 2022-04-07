@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Vacation_manager.Data.Models;
+using Vactaion_manager.Models.Projects;
 
 namespace Vactaion_manager.Services
 {
@@ -14,14 +15,10 @@ namespace Vactaion_manager.Services
 
         IEnumerable<Team> GetAllTeamsWorkingOnProject(ProjectTeam projectTeam);
 
-        //filter by name and description
-        //detail - list with teams working on it
-        //option - add / remove team - controllers
-
-        Task<int> Create(string projectName, string projectDescription);
+        Task<int> Create(CreateProjectInputModel inputModel);
 
         Task Delete(int projectId);
 
-        Task Update(string projectName, string projectDescription);
+        Task Update(UpdateProjectsInputModel inputModel);
     }
 }

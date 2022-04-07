@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Vacation_manager.Data;
 using Vacation_manager.Data.Models;
+using Vactaion_manager.Models.Projects;
 
 namespace Vactaion_manager.Services
 {
@@ -14,6 +15,32 @@ namespace Vactaion_manager.Services
         public ProjectsServices(VacationManagerContext managerContext)
         {
             this.managerContext = managerContext;
+        }
+
+        public async Task<int> Create(CreateProjectInputModel inputModel)
+        {
+            Project project = new Project()
+            {
+                Name = inputModel.Name,
+                Description = inputModel.Description,
+            };
+
+            await this.managerContext.AddAsync(project);
+            await this.managerContext.SaveChangesAsync();
+
+            return project.Id;
+        }
+
+        public async Task Delete(int projectId)
+        {
+            Project project = this.managerContext.Projects.FirstOrDefault(p => p.Id == projectId);
+            if (project == null)
+            {
+                throw new ArgumentNullException("The user does not exist!");
+            }
+
+            this.managerContext.Projects.Remove(project);
+            await this.managerContext.SaveChangesAsync();
         }
 
         public IEnumerable<Project> GetAllProjectsByDescription(string projectDescription)
@@ -44,6 +71,20 @@ namespace Vactaion_manager.Services
                 .ToList();
 
             return list;
+        }
+
+        public async Task Update(UpdateProjectsInputModel inputModel)
+        {
+            Project project = this.managerContext.Projects.FirstOrDefault(p => p.Id == inputModel.Id);
+            if (project == null)
+            {
+                throw new ArgumentNullException("Counld not be updated!");
+            }
+
+            project.Name = inputModel.Name;
+            project.Description = inputModel.Description;
+
+            await this.managerContext.SaveChangesAsync();
         }
     }
 }

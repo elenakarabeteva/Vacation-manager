@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Vacation_manager.Data.Models;
+using Vactaion_manager.Models.Roles;
 
 namespace Vactaion_manager.Services
 {
@@ -13,10 +14,10 @@ namespace Vactaion_manager.Services
         //roles and their users count
         IDictionary<string, int> GetAllRolesAndCount();
 
-        Task<int> Create(string type);
+        Task<int> Create(CreateRoleInputModel inputModel);
 
         Task Delete(int roleId);
 
-        Task Update(string type);
+        Task Update(UpdateRoleInputModel inputModel);
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Vacation_manager.Data.Models;
+using Vactaion_manager.Models.Teams;
 
 namespace Vactaion_manager.Services
 {
@@ -23,10 +24,10 @@ namespace Vactaion_manager.Services
 
         //IEnumerable<User> GetAllByUsers(string lastName);
 
-        Task<int> Create(string teamName);
+        Task<int> Create(int leaderId, CreateTeamInputModel inputModel);
 
         Task Delete(int teamId);
 
-        Task Update(string teamName);
+        Task Update(UpdateTeamInputModel inputModel);
     }
 }
