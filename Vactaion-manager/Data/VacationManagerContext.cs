@@ -52,6 +52,8 @@ namespace Vacation_manager.Data
             {
                 u.HasKey(u => u.Id);
             });
+
+            modelBuilder.Ignore<Type>();
         }
     }
 }
