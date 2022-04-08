@@ -54,6 +54,85 @@ namespace Vactaion_manager.Data
             });
 
             modelBuilder.Ignore<Type>();
+
+            modelBuilder.Entity<Role>()
+                .HasData(new Role()
+                {
+                    Id = 1,
+                    Type = "CEO"
+                }, new Role()
+                {
+                    Id = 2,
+                    Type = "Developer"
+                }, new Role()
+                {
+                    Id = 3,
+                    Type = "Team Leader"
+                }, new Role()
+                {
+                    Id = 4,
+                    Type = "Unassigned"
+                });
+
+            modelBuilder.Entity<Team>()
+                .HasData(new Role()
+                {
+                    Id = 1,
+                    Name = "Team1",
+                    LeaderId = 3
+                });
+
+            modelBuilder.Entity<VacationType>()
+                .HasData(new VacationType()
+                {
+                    Id = 1,
+                    Type = "Paid Leave"
+                }, new VacationType()
+                {
+                    Id = 2,
+                    Type = "Unpaid Leave"
+                }, new VacationType()
+                {
+                    Id = 3,
+                    Type = "Sick Leave"
+                });
+
+            modelBuilder.Entity<User>()
+                .HasData(new User()
+                {
+                    Id = 1,
+                    UserName = "admin",
+                    Password = "1234",
+                    FirstName = "Elena",
+                    Surname = "Karabeteva",
+                    RoleId = 1
+                }, new User()
+                {
+                    Id = 2,
+                    UserName = "developer",
+                    Password = "4321",
+                    FirstName = "Albert",
+                    Surname = "Sariev",
+                    RoleId = 2,
+                    TeamId = 1
+                }, new User()
+                {
+                    Id = 3,
+                    UserName = "teamLeader",
+                    Password = "1111",
+                    FirstName = "Kristiyan",
+                    Surname = "Simov",
+                    RoleId = 3,
+                    TeamId = 1
+                }, new User()
+                {
+                    Id = 4,
+                    UserName = "unassigned",
+                    Password = "0000",
+                    FirstName = "Kristina",
+                    Surname = "Kalemdzhieva",
+                    RoleId = 4
+                });
         }
     }
 }

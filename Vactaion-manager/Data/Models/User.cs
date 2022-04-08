@@ -26,7 +26,7 @@ namespace Vactaion_manager.Data.Models
 
         public virtual Role Role { get; set; }
 
-        [Required]
+        //[Required]
         [ForeignKey(nameof(Team))]
         public int TeamId { get; set; }
 
