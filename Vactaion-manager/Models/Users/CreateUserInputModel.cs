@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using Vacation_manager.Data.Models;
+using Vactaion_manager.Data.Models;
 
 namespace Vactaion_manager.Models.Users
 {

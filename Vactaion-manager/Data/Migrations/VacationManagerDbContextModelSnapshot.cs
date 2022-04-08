@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System;
-using Vacation_manager.Data;
+using Vactaion_manager.Data;
 
-namespace Vacation_manager.Data.Migrations
+namespace Vactaion_manager.Data.Migrations
 {
     [DbContext(typeof(VacationManagerContext))]
     partial class VacationManagerDbContextModelSnapshot : ModelSnapshot

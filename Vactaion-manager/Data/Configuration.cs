@@ -1,4 +1,4 @@
-﻿namespace Vacation_manager.Data
+﻿namespace Vactaion_manager.Data
 {
     public class Configuration
     {

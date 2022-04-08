@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Vacation_manager.Data.Models;
+using Vactaion_manager.Data.Models;
 using Vactaion_manager.Models.Projects;
 
 namespace Vactaion_manager.Services
