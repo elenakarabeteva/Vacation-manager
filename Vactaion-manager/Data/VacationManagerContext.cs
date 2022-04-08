@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Vacation_manager.Data.Models;
+using Vactaion_manager.Data.Models;
 
-namespace Vacation_manager.Data
+namespace Vactaion_manager.Data
 {
     public class VacationManagerContext : DbContext
     {

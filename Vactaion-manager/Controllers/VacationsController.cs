@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Vacation_manager.Data;
-using Vacation_manager.Data.Models;
+using Vactaion_manager.Data;
+using Vactaion_manager.Data.Models;
 
 namespace Vactaion_manager.Controllers
 {
